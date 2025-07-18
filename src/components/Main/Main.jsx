@@ -1,6 +1,7 @@
 import MainHeader from "./MainHeader";
 import NoteList from "./NoteList";
 import './main.css';
+// eslint-disable-next-line react/prop-types
 const Main = ({gridMode, setGridMode, notes, deleteNote, editNote}) => {
     return (
         <main className="main">

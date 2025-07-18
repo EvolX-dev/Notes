@@ -1,3 +1,4 @@
+// eslint-disable-next-line react/prop-types
 const MainHeader = ({gridMode, setGridMode}) => {
     return (
         <section className="main__header container">

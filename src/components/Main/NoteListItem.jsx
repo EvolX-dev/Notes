@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 
 const NoteListItem = ({gridMode, note, deleteNote, editNote}) => {
     return (

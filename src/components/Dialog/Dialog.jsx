@@ -1,5 +1,6 @@
 import './Dialog.css';
 
+// eslint-disable-next-line react/prop-types
 const Dialog = ({showModal, setShowModal, addNote, title, setTitle, note, setNote, isEdit, setIsEdit, endUpdate}) => {  
     if (!showModal) {
         return (
