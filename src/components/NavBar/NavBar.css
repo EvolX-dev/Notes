@@ -1,11 +1,18 @@
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(20, 20, 40, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
 .nav {
     height: 64px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    background: #f3edf7;
-    padding: 0 15px;
+    padding: 0 8px;
 }
 
 .nav__content {
@@ -13,24 +20,59 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 12px;
+    gap: 12px;
 }
 
 .nav h1 {
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 127%;
-    text-align: center;
-    color: #1c1b1f;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: -0.3px;
+    background: linear-gradient(135deg, #c4b5fd, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .nav input {
-    width: 90%;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 125%;
-    color: #9d9d9d;
+    width: 100%;
+    font-size: 15px;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    color: #e8e8f0;
+    transition: 0.2s;
+}
+
+.nav input:focus {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 2px rgba(167, 139, 250, 0.3);
 }
 
 .nav input::placeholder {
-    color: #9d9d9d;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.nav__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.nav__btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.nav__btn svg {
+    width: 22px;
+    height: 22px;
 }

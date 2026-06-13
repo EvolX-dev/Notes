@@ -1,10 +1,25 @@
 .add__note-btn {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 32px;
+    right: 32px;
     width: 56px;
     height: 56px;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 4px 8px 3px rgba(0, 0, 0, 0.15);
-    background: #f3edf7;
     border-radius: 16px;
+    background: linear-gradient(135deg, #7c3aed, #a78bfa);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(124, 58, 237, 0.35);
+    z-index: 40;
+    transition: box-shadow 0.2s;
+}
+
+.add__note-btn:hover {
+    box-shadow: 0 12px 32px rgba(124, 58, 237, 0.5);
+}
+
+.add__note-btn svg {
+    width: 24px;
+    height: 24px;
 }

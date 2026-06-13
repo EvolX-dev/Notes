@@ -1,13 +1,23 @@
+import { motion } from 'framer-motion';
 import './AddNoteBtn.css';
 
-const AddNoteBtn = ({setShowModal}) => {
+const AddNoteBtn = ({ setShowModal }) => {
     return (
-        <button className='add__note-btn' onClick={() => setShowModal(true)}>
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.06 0.590005L17.41 1.94C18.2 2.72 18.2 3.99 17.41 4.77L4.18 18H0V13.82L10.4 3.41L13.23 0.590005C14.01 -0.189995 15.28 -0.189995 16.06 0.590005ZM2 16L3.41 16.06L13.23 6.23L11.82 4.82L2 14.64V16Z" fill="#6750A4" />
+        <motion.button
+            className="add__note-btn"
+            onClick={() => setShowModal(true)}
+            whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: 1.05 }}
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.3, type: "spring", stiffness: 400, damping: 20 }}
+        >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
             </svg>
-        </button>
-    )
-}
+        </motion.button>
+    );
+};
 
 export default AddNoteBtn;

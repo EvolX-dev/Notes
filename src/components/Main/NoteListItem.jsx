@@ -1,32 +1,47 @@
-/* eslint-disable react/prop-types */
+import { motion } from 'framer-motion';
 
-const NoteListItem = ({gridMode, note, deleteNote, editNote}) => {
+const NoteListItem = ({ note, deleteNote, editNote }) => {
     return (
-        <div className={`note__list-item`}>
-            <div className={`note__list-item-header ${gridMode ? '' : 'list'}`}>
+        <motion.div
+            className="note__list-item"
+            layout
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
+            whileHover={{ y: -2 }}
+            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+        >
+            <div className="note__list-item-header">
                 <h4>{note.title}</h4>
                 <span>{note.data}</span>
             </div>
-            <p>
-                {note.descr}
-            </p>
+            <p>{note.descr}</p>
             <div className="note__list-item-btns">
-                <button onClick={() => editNote(note)}>
-                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fillRule="evenodd" clipRule="evenodd" d="M16.06 0.590001L17.41 1.94C18.2 2.72 18.2 3.99 17.41 4.77L4.18 18H0V13.82L10.4 3.41L13.23 0.590001C14.01 -0.189999 15.28 -0.189999 16.06 0.590001ZM2 16L3.41 16.06L13.23 6.23L11.82 4.82L2 14.64V16Z" fill="#6750A4" />
+                <motion.button
+                    className="btn-edit"
+                    onClick={() => editNote(note)}
+                    whileTap={{ scale: 0.9 }}
+                >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
                     </svg>
-                    <span>РЕДАКТИРОВАТЬ</span>
-                </button>
-                <button>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 19C6 20.1 6.9 21 8 21H16C17.1 21 18 20.1 18 19V7H6V19ZM8 9H16V19H8V9ZM15.5 4L14.5 3H9.5L8.5 4H5V6H19V4H15.5Z" fill="#CF1B1B" />
+                    <span>Править</span>
+                </motion.button>
+                <motion.button
+                    className="btn-delete"
+                    onClick={() => deleteNote(note.id)}
+                    whileTap={{ scale: 0.9 }}
+                >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="3 6 5 6 21 6" />
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
                     </svg>
-                    <span onClick={() => deleteNote(note.id)}>Удалить</span>
-                </button>
+                    <span>Удалить</span>
+                </motion.button>
             </div>
-
-        </div>
+        </motion.div>
     );
-}
+};
 
 export default NoteListItem;
